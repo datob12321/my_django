@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}index{% endblock %}
+
+{% block content %}
+
+{% for message in messages %}
+        <h3 style="color: chocolate"> {{ message }} </h3>
+    {% endfor %}
+
+{% if user.is_authenticated %}
+<h1>Hello {{ user.username }}</h1>
+{% endif %}
+
+<div class="features">
+
+    <h1>Features</h1>
+    <div class="feature-cards">
+    {% for feature in features %}
+
+    <div class="card card1" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ feature.name }}</h5>
+    <p class="card-text">{{ feature.details }}</p>
+    <a href="#" class="btn btn-primary">{{ feature.visible  }}</a>
+  </div>
+</div>
+
+{% endfor %}
+    </div>
+
+</div>
+
+<style>
+.feature-cards{
+    width: fit-content;
+    background-color: #008b46;
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+}
+
+.features{
+    margin-top: 30px;
+    margin-left: 20px;
+    padding: 5px;
+    width: 80%;
+    background-color: #008b46;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+
+.card{
+    background-color: #05202a;
+    color: white;
+    height: fit-content;
+
+}
+
+
+
+</style>
+
+{% endblock %}
+
